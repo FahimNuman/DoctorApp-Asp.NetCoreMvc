@@ -1,0 +1,7 @@
+﻿@model List<DoctorsApp.Models.Doctor>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a class="btn btn-success" asp-controller="Doctor" asp-action="Create">Create Doctor</a>
+<partial name="_Index" model="Model" ></partial>

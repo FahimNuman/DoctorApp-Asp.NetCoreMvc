@@ -1,0 +1,18 @@
+﻿@model List<DoctorsApp.Models.Doctor>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center text-success border">
+    <h1 class="display-4">ASAR ALO HOSPITAL PVT LTD</h1>
+    <p class="text-warning">We invite honorable Doctors for free registration in our hospital</p>
+</div>
+
+<a class="nav-link text-center text-danger border-1" asp-controller="Doctor" asp-action="Create">
+    Click Here For Free Registration
+</a>
+
+<partial name="_Index" model="Model"></partial>
+
+    
+   

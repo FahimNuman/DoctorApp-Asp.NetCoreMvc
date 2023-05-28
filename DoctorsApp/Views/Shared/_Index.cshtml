@@ -1,0 +1,41 @@
+﻿@model List<DoctorsApp.Models.Doctor>
+<table class="table table-success table-striped table-hover">
+    <thead class="table-success table-secondary">
+        <tr>
+            <th scope="col">Photo</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Degree</th>
+            <th scope="col">VisitFee</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count() > 0)
+        {
+            foreach (Doctor doctor in Model)
+            {
+                <tr>
+                    <td><img class=" width="60" height="50" src="~/@doctor.Avatar" /></td>
+                    <td>@doctor.Name</td>
+                    <td>@doctor.Email</td>
+                    <td>@doctor.Mobile</td>
+                    <td>@doctor.Degree</td>
+                    <td>@doctor.VisitFee</td>
+                    <td>@doctor.Gender</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@doctor.Id">
+                            <i class="fa fa-marker fa_lg"></i>
+                        </a> |
+                        <a asp-action="Delete" asp-route-id="@doctor.Id">
+                            <i class="fa fa-delete-left"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,105 @@
+﻿@model DoctorsApp.Models.Doctor
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<h1 class="text-md-center text-success">Edit Doctor</h1>
+
+<form asp-action="Edit" method="post" class="w-50 p-3 mx-auto border bg-light " enctype="multipart/form-data" data-parsley-validate>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger text-md-center"></div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtName" class="form-label">Please Enter Dr. Name</label>
+                <input type="text" id="txtName" class="form-control" asp-for="Name" placeholder="John Deo" required>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="txtEmail" aria-describedby="emailHelp" asp-for="Email" placeholder="john@gmail.com" required>
+                <div id="emailHelp" class="form-text">Please Provide a valid Email Address</div>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtMobile" class="form-label">Please Enter Mobile Number</label>
+                <input type="text" id="txtMobile" class="form-control" asp-for="Mobile" placeholder="+880 1XXXXXXXXX" required>
+                <div id="mobileHelp" class="form-text">Please input 11 Digit Valid Mobile Number.</div>
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtDegree" class="form-label">Please Enter Dr. Degree</label>
+                <input type="text" id="txtDegree" class="form-control" asp-for="Degree" placeholder="DR/MBBS/BDS" required>
+                <span asp-validation-for="Degree" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtVisitFee" class="form-label">Please Enter Dr. VisitFee</label>
+                <input type="text" id="txtVisitFee" class="form-control" asp-for="VisitFee" placeholder="500/700/900" required>
+                <div id="visitfeeHelp" class="form-text">Foreign currency not acceptable.</div>
+                <span asp-validation-for="VisitFee" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtPassword" class="form-label">Password<sup>*</sup></label>
+                <input type="password" class="form-control" id="txtPassword" placeholder="Password" asp-for="Password" data-parsley-minlength="8" data-parsley-uppercase="1" data-parsley-lowercase="1" data-parsley-special="1" data-parsley-number="1" data-parsley-error-message="Your password must 8 character long, contain at least (1) lowercase, (1) uppercase, (1) number and (1) special character." required>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtConfirmPassword" class="form-label">Confirm Password<sup>*</sup></label>
+                <input type="password" class="form-control" id="txtConfirmPassword" placeholder="Password" asp-for="Password" data-parsley-equalto="#txtPassword" required>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="filePhoto" class="form-label">Photo</label>
+                <input type="file" class="form-control" id="filePhoto" asp-for="File" accept="image/*">
+                <span asp-validation-for="File"></span>
+                <img id="blah" src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" alt="your image" style="height: 50px; width: 60px;" />
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Please select Dr. Gender</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="male" name="gender" value="Male" asp-for="Gender">
+                <label class="form-check-label" for="male">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="female" name="gender" value="Female" asp-for="Gender">
+                <label class="form-check-label" for="female">
+                    Female
+                </label>
+            </div>
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="btn" value="Edit">Save</button>
+
+</form>
+
